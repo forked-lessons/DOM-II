@@ -14,10 +14,6 @@ navAnimate.addEventListener("mouseover", event => {
     }, 500);
 }, false);
 
-// Movement
-
-
-
 // Size 
 
 navAnimate.addEventListener("mouseover", event => {
@@ -61,17 +57,6 @@ btmImg.addEventListener("mouseover", event => {
     TweenMax.to(".btm-img", 3, { scale: 1, skewX: 0, rotation: 360 });
 });
 
-// Text Animations
-const text = document.querySelector('p');
-text.addEventListener("mouseover", event => {
-    event.target.style.color = "green";
-    // event.stopPropagation();
-
-    setTimeout(function () {
-        event.target.style.color = "";
-    }, 500);
-}, false);
-
 // prevent default
 const prevDef = document.querySelector(".btn");
 prevDef.addEventListener("click", function (event) {
@@ -99,4 +84,21 @@ function drop_handler(ev) {
     ev.target.appendChild(document.getElementById(data));
 }
 
+// Scroll
 
+window.addEventListener('scroll', e => {
+    TweenMax.to('.content-section', 1, { rotation: -360 })
+})
+
+// Keydown
+const navBackground = document.querySelector('.nav-container');
+document.addEventListener('keydown', e => {
+    navBackground.style.background = getRandomColor();
+});
+
+// Stop Propagation
+const destination = document.querySelector('.content-destination h2');
+destination.addEventListener('copy', e => {
+    e.stopPropagation();
+    destination.style["font-size"] = 40;
+})
