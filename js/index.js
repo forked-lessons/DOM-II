@@ -38,8 +38,14 @@ funBus.addEventListener("click", event => {
     }, 2000);
 }, false);
 
+// Image animations
 
+const imageAnimation1 = document.querySelector(".image-animate1");
+imageAnimation1.addEventListener("mouseover", event => {
+    TweenMax.to(".image-animate1", 4, { rotationY: 360 });
+});
 
-
-
+const imageAnimation2 = document.querySelector(".image-animate2");
+imageAnimation2.addEventListener("mouseover", event => {
+});
 
