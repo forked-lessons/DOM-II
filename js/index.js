@@ -6,11 +6,9 @@ const navAnimate = document.querySelector("nav");
 
 // Color
 
-navAnimate.addEventListener("mouseover", function (event) {
-    // highlight the mouseover target
+navAnimate.addEventListener("mouseover", event => {
     event.target.style.color = "#17A2B8";
 
-    // reset the color after a short delay
     setTimeout(function () {
         event.target.style.color = "";
     }, 500);
@@ -18,13 +16,30 @@ navAnimate.addEventListener("mouseover", function (event) {
 
 // Size 
 
-navAnimate.addEventListener("mouseover", function (event) {
+navAnimate.addEventListener("mouseover", event => {
 
-    // highlight the mouseenter target
     event.target.style["font-size"] = "30px";
-    // reset the color after a short delay
     setTimeout(function () {
         event.target.style["font-size"] = "20px";
     }, 500);
 }, false);
+
+
+// Fun Bus Animations
+
+const funBus = document.querySelector(".fun-bus");
+
+// Movement
+
+funBus.addEventListener("click", event => {
+    TweenLite.to(funBus, 2.5, { ease: Back.easeInOut, x: 900 });
+    setTimeout(function () {
+        TweenLite.to(funBus, 2.5, { ease: Back.easeInOut, x: 0 });
+    }, 2000);
+}, false);
+
+
+
+
+
 
