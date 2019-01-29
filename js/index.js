@@ -39,6 +39,11 @@ funBus.addEventListener("click", event => {
 }, false);
 
 // Image animations
+const imgAnimate = document.querySelector("img");
+imgAnimate.addEventListener("mouseover", event => {
+    TweenMax.to("img", 4, { rotationY: 360 });
+    event.stopPropagation();
+});
 
 const imageAnimation1 = document.querySelector(".image-animate1");
 imageAnimation1.addEventListener("mouseover", event => {
@@ -46,6 +51,16 @@ imageAnimation1.addEventListener("mouseover", event => {
 });
 
 const imageAnimation2 = document.querySelector(".image-animate2");
-imageAnimation2.addEventListener("mouseover", event => {
+imageAnimation2.addEventListener("dblclick", event => {
+    TweenMax.to(".image-animate2", 4, { rotationX: 360 });
 });
 
+// Bottom Image Animations
+
+const btmImg = document.querySelector(".btm-img");
+// btmImg.addEventListener("mouseover", event => {
+//     TweenMax.to(".btm-img", 3, { scale: 1, skewX: 0, rotation: 360 });
+
+//     console.log('test');
+
+// });
