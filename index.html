@@ -94,6 +94,17 @@
         <div class="btn">Sign Me Up!</div>
       </div>
     </section>
+    <section>
+      <div class="drag_drop">
+        <p id="p1" draggable="true" ondragstart="dragstart_handler(event);">
+          This element is draggable. <span>🚌</span>
+        </p>
+
+        <div id="target" ondrop="drop_handler(event);" ondragover="dragover_handler(event);">
+          Drop Zone
+        </div>
+      </div>
+    </section>
   </div><!-- container -->
 
   <footer class="footer">

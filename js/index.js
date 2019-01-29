@@ -14,6 +14,10 @@ navAnimate.addEventListener("mouseover", event => {
     }, 500);
 }, false);
 
+// Movement
+
+
+
 // Size 
 
 navAnimate.addEventListener("mouseover", event => {
@@ -39,11 +43,6 @@ funBus.addEventListener("click", event => {
 }, false);
 
 // Image animations
-const imgAnimate = document.querySelector("img");
-imgAnimate.addEventListener("mouseover", event => {
-    TweenMax.to("img", 4, { rotationY: 360 });
-    event.stopPropagation();
-});
 
 const imageAnimation1 = document.querySelector(".image-animate1");
 imageAnimation1.addEventListener("mouseover", event => {
@@ -58,9 +57,46 @@ imageAnimation2.addEventListener("dblclick", event => {
 // Bottom Image Animations
 
 const btmImg = document.querySelector(".btm-img");
-// btmImg.addEventListener("mouseover", event => {
-//     TweenMax.to(".btm-img", 3, { scale: 1, skewX: 0, rotation: 360 });
+btmImg.addEventListener("mouseover", event => {
+    TweenMax.to(".btm-img", 3, { scale: 1, skewX: 0, rotation: 360 });
+});
 
-//     console.log('test');
+// Text Animations
+const text = document.querySelector('p');
+text.addEventListener("mouseover", event => {
+    event.target.style.color = "green";
+    // event.stopPropagation();
 
-// });
+    setTimeout(function () {
+        event.target.style.color = "";
+    }, 500);
+}, false);
+
+// prevent default
+const prevDef = document.querySelector(".btn");
+prevDef.addEventListener("click", function (event) {
+    prevDef.innerHTML = "Sorry! <code>preventDefault()</code> won't let you check this!<br>";
+    event.preventDefault();
+}, false);
+
+// Drag / drop 
+function dragstart_handler(ev) {
+    // Add the target element's id to the data transfer object
+    ev.dataTransfer.setData("text/plain", ev.target.id);
+    ev.dropEffect = "move";
+}
+
+function dragover_handler(ev) {
+    ev.preventDefault();
+    // Set the dropEffect to move
+    ev.dataTransfer.dropEffect = "move"
+}
+
+function drop_handler(ev) {
+    ev.preventDefault();
+    // Get the id of the target and add the moved element to the target's DOM
+    var data = ev.dataTransfer.getData("text/plain");
+    ev.target.appendChild(document.getElementById(data));
+}
+
+
